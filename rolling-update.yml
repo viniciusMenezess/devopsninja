@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+  # namespace: <nome-aluno>
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.29-alpine ##Posteriorment eu rodei um k set image deployments/my-nginx nginx=nginx:latest para trocar a imagem para um latest
+        ports:
+        - containerPort: 80
